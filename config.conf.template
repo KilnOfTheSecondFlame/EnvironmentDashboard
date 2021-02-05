@@ -1,0 +1,14 @@
+[DEFAULT]
+dashboard_name = ''
+debug = 'True'
+
+[Converter]
+password = ''
+device_ip = ''
+# Time in minutes
+converter_poll_time = 30
+
+[PiEnvironmentSensor]
+humidity_offset = +5.0
+# Time in minutes
+sensor_poll_time = 0.2
