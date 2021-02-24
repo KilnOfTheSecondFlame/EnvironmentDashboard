@@ -162,7 +162,7 @@ app.layout = html.Div(
 
 @app.callback(Output('environment-stats', 'figure'),
               [Input('environment-interval', 'n_intervals')])
-def update_environment_status():
+def update_environment_status(*args, **kwargs):
     temperature, pressure, humidity = get_environment_stats()
     env_table = ff.create_table(
         [
@@ -181,5 +181,5 @@ def update_environment_status():
 
 @app.callback(Output('solar-lastday', 'figure'),
               [Input('solar-interval', 'n_intervals')])
-def update_solar_figure():
+def update_solar_figure(*args, **kwargs):
     return draw_solar_figure()
