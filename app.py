@@ -16,12 +16,12 @@ from KostalPlenticore import SolarPoller
 
 config = configparser.ConfigParser()
 config.read('config.conf')
-poll_time = config.get('DEFAULT', 'sensor_poll_time')
+poll_time = float(config.get('PiEnvironmentSensor', 'sensor_poll_time'))
 debug_flag = config.getboolean('DEFAULT', 'debug')
 dashboard_name = config.get('DEFAULT', 'dashboard_name')
 ip_address_converter = config.get('Converter', 'device_ip')
 password_converter = config.get('Converter', 'password')
-converter_poll_time = config.get('Converter', 'converter_poll_time')
+converter_poll_time = float(config.get('Converter', 'converter_poll_time'))
 
 
 def setup_app():

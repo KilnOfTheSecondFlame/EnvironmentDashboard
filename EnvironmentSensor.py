@@ -11,7 +11,7 @@ class EnvironmentSensor(Thread):
         Thread.__init__(self)
         config = configparser.ConfigParser()
         config.read('config.conf')
-        humidity_offset = config['PiEnvironmentSensor']['humidity_offset']
+        humidity_offset = float(config['PiEnvironmentSensor']['humidity_offset'])
 
         # Poll time in minutes
         self.__poll_time = poll_time

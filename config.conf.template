@@ -1,10 +1,10 @@
 [DEFAULT]
-dashboard_name = ''
-debug = 'True'
+dashboard_name = Your Dashboard Name
+debug = True
 
 [Converter]
-password = ''
-device_ip = ''
+password = password
+device_ip = 1.1.1.1
 # Time in minutes
 converter_poll_time = 30
 
