@@ -38,7 +38,6 @@ def setup_app():
     environment_sensor.start()
     solar_poller.start()
 
-
 def draw_solar_figure():
     df = pd.read_csv('temp.csv', header=5)
     df.Zeit = pd.DatetimeIndex(
@@ -46,6 +45,7 @@ def draw_solar_figure():
     sub_df = df[['Zeit', 'HC1 P', 'HC2 P', 'HC3 P', 'SOC H', 'DC1 P', 'DC2 P']]
     sub_df = sub_df.fillna(method='pad')
     sub_df['DC P'] = sub_df['DC1 P'] + sub_df['DC2 P']
+    sub_df['Tot P'] = sub_df['HC1 P'] + sub_df['HC2 P'] + sub_df['HC3 P']
     fig = make_subplots(specs=[[{"secondary_y": True}]])
     fig.add_trace(
         go.Scatter(
@@ -95,6 +95,16 @@ def draw_solar_figure():
             x=sub_df['Zeit'],
             y=sub_df['HC3 P'],
             name='Grid Consumption',
+            mode='lines',
+            hoverinfo='name+y'
+        ),
+        secondary_y=False,
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=sub_df['Zeit'],
+            y=sub_df['Tot P'],
+            name='Total Consumption',
             mode='lines',
             hoverinfo='name+y'
         ),
