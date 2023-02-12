@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 import plotly.io as pio
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
@@ -37,6 +37,7 @@ def setup_app():
     )
     environment_sensor.start()
     solar_poller.start()
+
 
 def draw_solar_figure():
     df = pd.read_csv('temp.csv', header=5)
