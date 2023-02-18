@@ -4,7 +4,7 @@ import dash
 from dash import dcc
 from dash import html
 import plotly.io as pio
-from plotly.tools import FigureFactory as ff
+import plotly.figure_factory as ff
 import plotly.graph_objects as go
 import pandas as pd
 import configparser
@@ -55,7 +55,7 @@ def draw_solar_figure():
             name='Battery Charge Status',
             mode='lines',
             fill='tozeroy',
-            opacity=0.1,
+            opacity=0.05,
             hoverinfo='name+y'
         ),
         secondary_y=True,

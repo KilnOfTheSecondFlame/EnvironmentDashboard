@@ -21,6 +21,10 @@ Activate I2C in Raspberrry Pi and reboot
 ```terminal
 curl https://get.pimoroni.com/bme680 | bash
 ```
+Sometimes this does not work and you have to enable I2C manually in the config
+```terminal
+sudo raspi-config
+```
 
 ## Desktop File
 ```text
@@ -43,4 +47,5 @@ gunicorn3 app:server -b :8050
 Place the service in ```/etc/systemd/system/```
 ```terminal
 sudo apt install gunicorn3
+sudo apt install libatlas-base-dev
 ```
